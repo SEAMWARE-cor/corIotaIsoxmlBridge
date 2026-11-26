@@ -27,7 +27,7 @@ ISOXML_TEST_DIR="${ISOXML_TEST_DIR:-/tmp/iotaisoxml-bridge-test}"
 brokerStart() {
   brokerStop
 
-  "$ISOXML_BROKER" --port "$ISOXML_PORT" --foreground --pretty-print 2 --httpEndpoint "http://localhost:$ISOXML_PORT" \
+  "$ISOXML_BROKER" --port "$ISOXML_PORT" --pretty-print 2 --httpEndpoint "http://localhost:$ISOXML_PORT" \
                  --database ramDB --bridges "$ISOXML_PLUGIN" --bridgeConfig "$ISOXML_TEST_DIR/bridges.json" "$@" \
                  > "$ISOXML_TEST_DIR/broker.log" 2>&1 &
   echo $! > "$ISOXML_TEST_DIR/broker.pid"
